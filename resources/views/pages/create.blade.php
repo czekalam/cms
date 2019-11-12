@@ -1,58 +1,22 @@
-</<!DOCTYPE html>
-<html>
-<head>
- 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
- 
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
- 
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
- 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
- 
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-</style>
-   
-</head>
-<body>
- 
-<h1>Create New Pages</h1>
-<div class="container">
-    <form method="POST" action="/pagesaction">
-        {{ csrf_field() }}
-       <div>
-          <label >Page Name</label>
-          <input type="text" name="name" placeholder="Page Name">
-      </div>
-      <div>
-            <input type="submit" value="Make Page">
-      </div>
-    </form>  
- </div>
-</body>
-</html>
+@extends('layout')
+@section('title','Create')
+@section('content')
+    <h1 class="uk-text-center">Create</h1>
+    <div class="uk-align-center uk-width-1-2">
+        <form class="uk-flex uk-flex-column" method="POST" action="/pages">
+            @csrf
+            <input required type="text" name="title" placeholder="Page title">
+            <textarea required name="description" placeholder="Page description"></textarea>
+            <button type="submit">Create Page</button>
+        </form>
+        @if($errors->any())
+            <div style="background-color: red;padding:100px;">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
+@endsection
