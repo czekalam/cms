@@ -12,12 +12,6 @@
             <ul class="nav__list uk-flex uk-flex-row uk-flex-center">
                 <li class="nav__list-item uk-margin-small-right"><a href="/pages">pages</a></li>
                 <li class="nav__list-item uk-margin-small-right"><a href="/pages/create">create</a></li>
-                <li class="nav__list-item uk-margin-small-right"><a href="/sections">sections</a></li>
-                <li class="nav__list-item">
-                    <a href="/sections/create">
-                        create section
-                    </a>
-                </li>
             </ul>
         </nav>
         @yield('content')
