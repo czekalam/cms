@@ -7,11 +7,11 @@
         <link rel="stylesheet" type="text/css" href="{{ url('/uikit/css/uikit.min.css') }}" />
         <title>@yield('title','CMS')</title>
     </head>
-    <body>
+    <body class="uk-background-muted">
         <nav class="nav">
             <ul class="nav__list uk-flex uk-flex-row uk-flex-center">
-                <li class="nav__list-item uk-margin-small-right"><a href="/pages">pages</a></li>
-                <li class="nav__list-item uk-margin-small-right"><a href="/pages/create">create</a></li>
+                <li class="nav__list-item uk-margin-small-right"><a href="/pages">Pages</a></li>
+                <li class="nav__list-item uk-margin-small-right"><a href="/pages/create">Create page</a></li>
             </ul>
         </nav>
         @yield('content')

@@ -11,12 +11,17 @@
                             <p>{{$page->title}}</p>
                             <p>{{$page->description}}</p>
                         </div>
-                        <a class="button" href="/pages/{{$page->id}}/edit">edit</a>
+                        
+                        <div class="uk-display-inline-block">
+                            <form method="GET" action="/pages/{{ $page->id}}/edit">
+                                <button class="uk-button">Edit page</a>
+                            </form>
+                        </div>
                         <div class="uk-display-inline-block">
                             <form method="POST" action="/pages/{{ $page->id}}">
                                 @csrf
                                 {{ method_field('DELETE') }}
-                                    <button class="button" type="submit">Delete Page</button>
+                                <button class="uk-button" type="submit">Delete page</button>
                             </form>
                         </div>
                     </li>

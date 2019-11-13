@@ -12,7 +12,8 @@ class PagesController extends Controller
     }
     public function show(Page $page) 
     {
-        return view('pages.show', compact('page'));
+        $pages = Page::all();
+        return view('pages.show', compact('page','pages'));
     }
     public function create() 
     {
