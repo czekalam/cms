@@ -14,7 +14,7 @@
                         
                         <div class="uk-display-inline-block">
                             <form method="GET" action="/pages/{{ $page->id}}/edit">
-                                <button class="uk-button">Edit page</a>
+                                <button class="uk-button" type="submit">Edit page</button>
                             </form>
                         </div>
                         <div class="uk-display-inline-block">
