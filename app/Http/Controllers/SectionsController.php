@@ -8,16 +8,18 @@ class SectionsController extends Controller
 {
     public function store(Page $page)
     {
-        request()->validate([
-            'title' => 'required',
-            'description' => 'required'
-        ]);
-        Section::create([
-            'title' => request('title'),
-            'description' => request('description'),
-            'page_id' => $page->id
-        ]);
-        return redirect('/pages/'.$page->id);
+        echo 'dupa';
+        dd(request());
+        // request()->validate([
+        //     'title' => 'required',
+        //     'description' => 'required'
+        // ]);
+        // Section::create([
+        //     'title' => request('title'),
+        //     'description' => request('description'),
+        //     'page_id' => $page->id
+        // ]);
+        return redirect('/pages/');
     }
     public function show(Section $section)
     {

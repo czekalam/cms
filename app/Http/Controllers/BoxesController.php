@@ -51,9 +51,11 @@ class BoxesController extends Controller
      * @param  \App\Box  $box
      * @return \Illuminate\Http\Response
      */
-    public function show(Box $box)
+    public function show($slug)
     {
-        //
+        $box = Box::where('name', $slug)->firstOrFail();
+        $boxes = Box::all();
+        return view('boxes.show', compact('box','boxes'));
     }
 
     /**

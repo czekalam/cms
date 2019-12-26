@@ -8,8 +8,7 @@
             <form class="uk-form-custom" method="POST" action="/pages/{{ $page->id}}">
                 @csrf
                 {{ method_field('PATCH') }}
-                <input class="uk-input" required type="text" name="title" placeholder="Page title" value="{{$page->title}}">
-                <input class="uk-input" required type="text" name="description" placeholder="Page description" value="{{$page->description}}">
+                <input class="uk-input" required type="text" name="name" placeholder="Page name" value="{{$page->name}}">
                 <button class="uk-button uk-button-default" type="submit">Update Page</button>
             </form>
             {{-- delete --}}
@@ -26,19 +25,22 @@
                     @csrf
                     {{ method_field('PATCH') }}
                     <input class="uk-input" required type="text" name="title" placeholder="Section title" value="{{$section->title}}">
-                    <input class="uk-input" required name="description" placeholder="Section description" value="{{$section->description}}">
                     <button class="uk-button uk-button-default" type="submit">Update Section</button>
                 </form>
             @endforeach
         </div>
         {{-- create section --}}
         <div>
-            <form class="uk-form-custom" method="POST" action="/pages/{{$page->id}}/sections">
+            <form id="create_section" class="uk-form-custom" method="POST" action="/pages/{{$page->name}}/sections">
                 @csrf
-                <input class="uk-input" required type="text" name="title" placeholder="Section title">
-                <input class="uk-input" required name="description" placeholder="Section description">
+                <input class="uk-input" required type="text" name="name" placeholder="name">                
                 <button class="uk-button uk-button-default" type="submit">Create Section</button>
             </form>
+            <select name="box-type" form="create_section">
+                @foreach ($boxes as $box)
+                    <option value="{{$box->name}}">{{$box->name}}</option>
+                @endforeach
+            </select>
         </div>
         {{-- errors --}}
         @if($errors->any())

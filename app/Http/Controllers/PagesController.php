@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Page;
-
+use App\Box;
 class PagesController extends Controller 
 {
     public function index() 
@@ -14,7 +14,7 @@ class PagesController extends Controller
     {
         if($slug)
         {
-            $page = Page::where('title', $slug)->firstOrFail();
+            $page = Page::where('name', $slug)->firstOrFail();
         }
         else {
             $page = Page::first();
@@ -26,24 +26,24 @@ class PagesController extends Controller
     {
         return view('pages.create');
     }
-    public function edit(Page $page)
+    public function edit($slug)
     {
-        return view('pages.edit', compact('page'));
+        $page = Page::where('name', $slug)->firstOrFail();
+        $boxes = Box::all();
+        return view('pages.edit', compact('page','boxes'));
     }
     public function update(Page $page) 
     {
         request()->validate([
-            'title' => 'required',
-            'description' => 'required'
+            'name' => 'required'
         ]);
-        $page->update(request(['title','description']));
+        $page->update(request(['name']));
         return redirect('/pages');
     } 
     public function store() 
-    {   
+    {
         $data = request()->validate([
-            'title' => 'required',
-            'description' => 'required'
+            'name' => 'required'
         ]);
         Page::create($data);
         return redirect('/pages');

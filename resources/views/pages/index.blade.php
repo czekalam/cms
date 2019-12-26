@@ -5,20 +5,19 @@
     <div class="items uk-align-center uk-width-1-2">
         <ul class="items__list">
             @foreach ($pages as $page)
-                <a href="/pages/{{$page->id}}">
+                <a href="/pages/{{$page->name}}">
                     <li class="items__list-item">
                         <div class="items__content">
-                            <p>{{$page->title}}</p>
-                            <p>{{$page->description}}</p>
+                            <p>{{$page->name}}</p>
                         </div>
                         
                         <div class="uk-display-inline-block">
-                            <form method="GET" action="/pages/{{ $page->id}}/edit">
+                            <form method="GET" action="/pages/{{ $page->name}}/edit">
                                 <button class="uk-button" type="submit">Edit page</button>
                             </form>
                         </div>
                         <div class="uk-display-inline-block">
-                            <form method="POST" action="/pages/{{ $page->id}}">
+                            <form method="POST" action="/pages/{{ $page->name}}">
                                 @csrf
                                 {{ method_field('DELETE') }}
                                 <button class="uk-button" type="submit">Delete page</button>
