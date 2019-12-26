@@ -14,11 +14,14 @@
             @endforeach
         </nav>
         <main>
-            @foreach ($page->sections as $section)
-                <section>
-                    {!!$section->description!!}
-                </section>
-            @endforeach
+
+            @if($page->sections)
+                @foreach ($page->sections as $section)
+                    <section>
+                        {!!$section->description!!}
+                    </section>
+                @endforeach
+            @endif
         </main>
     </body>
 </html>

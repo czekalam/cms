@@ -3,15 +3,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Page;
 
-class PagesController extends Controller
+class PagesController extends Controller 
 {
     public function index() 
     {
         $pages = Page::all();
         return view('pages.index',compact('pages'));
     }
-    public function show(Page $page) 
+    public function show($slug="") 
     {
+        if($slug)
+        {
+            $page = Page::where('title', $slug)->firstOrFail();
+        }
+        else {
+            $page = Page::first();
+        }
         $pages = Page::all();
         return view('pages.show', compact('page','pages'));
     }
