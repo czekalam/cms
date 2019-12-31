@@ -2,24 +2,26 @@
 namespace App\Http\Controllers;
 use App\Section;
 use App\Page;
+use App\Box;
 use Illuminate\Http\Request;
 
 class SectionsController extends Controller
 {
-    public function store(Page $page)
+    public function store($slug)
     {
-        echo 'dupa';
-        dd(request());
+        $box = Box::where('name', request('box_type'))->firstOrFail();
         // request()->validate([
-        //     'title' => 'required',
-        //     'description' => 'required'
+        //     'name' => 'required',
+        //     'box-type' => 'required'
         // ]);
         // Section::create([
-        //     'title' => request('title'),
-        //     'description' => request('description'),
-        //     'page_id' => $page->id
+        //     'name' => request('name'),
+        //     'box_id' => request('id'),
+        //     'page_id' => request('page_id'),
+        //     'box_content' => "asdadsad"
         // ]);
-        return redirect('/pages/');
+        echo dd(request());
+        return redirect('/');
     }
     public function show(Section $section)
     {

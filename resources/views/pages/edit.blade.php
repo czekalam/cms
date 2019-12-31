@@ -36,7 +36,7 @@
                 <input class="uk-input" required type="text" name="name" placeholder="name">                
                 <button class="uk-button uk-button-default" type="submit">Create Section</button>
             </form>
-            <select name="box-type" form="create_section">
+            <select name="box_type" form="create_section">
                 @foreach ($boxes as $box)
                     <option value="{{$box->name}}">{{$box->name}}</option>
                 @endforeach
