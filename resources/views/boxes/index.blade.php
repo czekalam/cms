@@ -8,7 +8,7 @@
                 <a href="/boxes/{{$box->id}}">
                     <li class="items__list-item">
                         <div class="items__content">
-                            <p>{{$box->name}}</p>
+                            <p>{{$box->name}}</p>asdadsdaads
                             <p>{{$box->structure}}</p>
                         </div>
                     </li>
