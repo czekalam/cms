@@ -1,13 +1,14 @@
 @extends('layout')
-@section('title','Create')
+@section('title','Create box')
 @section('content')
-    <h1 class="uk-text-center">Create</h1>
+    <h1 class="uk-text-center">Create box</h1>
     <div class="uk-align-center uk-width-1-2">
         <form class="uk-form-custom" method="POST" action="/boxes">
             @csrf
             <input class="uk-input" required type="text" name="name" placeholder="Box name">
-            <input class="uk-input" required type="text" name="structure" placeholder="Box structure">
-            <input class="uk-input" required type="text" name="form" placeholder="Box form">
+            <input class="uk-input" required type="text" name="box_open" placeholder="Box open">
+            <input class="uk-input" required type="text" name="box_close" placeholder="Box close">
+            <input class="uk-input" required type="text" name="box_form" placeholder="Box form">
             <button class="uk-button" type="submit">Create Box</button>
         </form>
         @if($errors->any())

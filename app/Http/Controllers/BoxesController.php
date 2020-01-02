@@ -38,8 +38,9 @@ class BoxesController extends Controller
     {
         $data = request()->validate([
             'name' => 'required',
-            'form' => 'required',
-            'structure' => 'required'
+            'box_form' => 'required',
+            'box_open' => 'required',
+            'box_close' => 'required'
         ]);
         Box::create($data);
         return redirect('/boxes');

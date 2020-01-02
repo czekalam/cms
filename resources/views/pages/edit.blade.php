@@ -31,14 +31,17 @@
         </div>
         {{-- create section --}}
         <div>
-            <form id="create_section" class="uk-form-custom" method="POST" action="/pages/{{$page->name}}/sections">
+            <form id="create_section" class="uk-form-custom" method="POST" action="/pages/{{$page->name}}/sections/create">
                 @csrf
-                <input class="uk-input" required type="text" name="name" placeholder="name">                
+                <input name="page_id" type="hidden" value="{{$page->id}}">
+                <input class="uk-input" required type="text" name="section_name" placeholder="name">
+                <input class="uk-input" required type="text" name="html_class" placeholder="class">
+                <input class="uk-input" required type="text" name="html_id" placeholder="id">                
                 <button class="uk-button uk-button-default" type="submit">Create Section</button>
             </form>
-            <select name="box_type" form="create_section">
+            <select name="box_id" form="create_section">
                 @foreach ($boxes as $box)
-                    <option value="{{$box->name}}">{{$box->name}}</option>
+                    <option value="{{$box->id}}">{{$box->name}}</option>
                 @endforeach
             </select>
         </div>

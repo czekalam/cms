@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Box extends Model
 {
-    protected $fillable = ['name','structure','form'];
-    public function sections() 
+    protected $fillable = ['name','box_open','box_close','box_form'];
+    public function section()
     {
-        return $this->hasMany(Section::class);
+        return $this->belongsTo(Section::class);
     }
 }

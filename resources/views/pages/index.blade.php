@@ -10,7 +10,6 @@
                         <div class="items__content">
                             <p>{{$page->name}}</p>
                         </div>
-                        
                         <div class="uk-display-inline-block">
                             <form method="GET" action="/pages/{{ $page->name}}/edit">
                                 <button class="uk-button" type="submit">Edit page</button>

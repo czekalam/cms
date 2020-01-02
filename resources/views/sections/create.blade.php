@@ -3,11 +3,14 @@
 @section('content')
     <h1 class="uk-text-center">Create</h1>
     <div class="uk-align-center uk-width-1-2">
-        <form class="uk-flex uk-flex-column" method="POST" action="/sections">
+        <form class="uk-flex uk-flex-column" method="POST" action="/pages/{{$page_name}}/sections">
             @csrf
-            <input required type="text" name="title" placeholder="Section title">
-            <input required type="number" name="page_id" placeholder="pageid">
-            <textarea required name="description" placeholder="Section description"></textarea>
+            <input name="box_id" type="hidden" value="{{$box_id}}">
+            <input name="page_id" type="hidden" value="{{$page_id}}">
+            <input name="html_id" type="hidden" value="{{$html_id}}">
+            <input name="html_class" type="hidden" value="{{$html_class}}">
+            <input name="section_name" type="hidden" value="{{$section_name}}">
+            {!!$box_form!!}
             <button type="submit">Create Section</button>
         </form>
         @if($errors->any())

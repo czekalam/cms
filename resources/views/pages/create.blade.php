@@ -6,6 +6,8 @@
         <form class="uk-form-custom" method="POST" action="/pages">
             @csrf
             <input class="uk-input" required type="text" name="name" placeholder="Page name">
+            <input class="uk-input" required type="text" name="html_class" placeholder="class">
+            <input class="uk-input" required type="text" name="html_id" placeholder="id">
             <button class="uk-button" type="submit">Create Page</button>
         </form>
         @if($errors->any())

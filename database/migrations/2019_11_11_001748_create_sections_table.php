@@ -19,6 +19,8 @@ class CreateSectionsTable extends Migration
             $table->unsignedInteger('box_id');
             $table->string('name');
             $table->string('box_content');
+            $table->string('html_class');
+            $table->string('html_id');
             $table->timestamps();
         });
     }

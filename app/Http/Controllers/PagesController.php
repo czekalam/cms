@@ -19,8 +19,14 @@ class PagesController extends Controller
         else {
             $page = Page::first();
         }
-        $pages = Page::all();
-        return view('pages.show', compact('page','pages'));
+
+        $page_sections =  $page->sections;
+ 
+        $boxes = array();
+        foreach ($page_sections as $page_section) {
+            $boxes[] = $page_section->box;
+        }
+        return view('pages.show', compact('page','boxes'));
     }
     public function create() 
     {
@@ -43,7 +49,9 @@ class PagesController extends Controller
     public function store() 
     {
         $data = request()->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'html_class' => 'nullable',
+            'html_id' => 'nullable'
         ]);
         Page::create($data);
         return redirect('/pages');
