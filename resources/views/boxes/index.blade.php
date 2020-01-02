@@ -9,7 +9,12 @@
                     <div class="items__content">
                         <p>{{$box->name}}</p>
                         <p>{{$box->structure}}</p>
-                        <a href="">edit</a>
+                        <a href="/boxes/{{$box->name}}/edit">edit</a>
+                        <form method="POST" action="/boxes/{{ $box->id}}">
+                            @csrf
+                            {{ method_field('DELETE') }}
+                            <button type="submit">Delete Box</button>
+                        </form>
                     </div>
                 </li>
             @endforeach

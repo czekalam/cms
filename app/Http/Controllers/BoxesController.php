@@ -65,9 +65,10 @@ class BoxesController extends Controller
      * @param  \App\Box  $box
      * @return \Illuminate\Http\Response
      */
-    public function edit(Box $box)
+    public function edit($slug)
     {
-        //
+        $box = Box::where('name', $slug)->firstOrFail();
+        return view('boxes.edit',compact('box'));
     }
 
     /**
@@ -79,7 +80,14 @@ class BoxesController extends Controller
      */
     public function update(Request $request, Box $box)
     {
-        //
+        $data = request()->validate([
+            'name' => 'required',
+            'box_form' => 'required',
+            'box_open' => 'required',
+            'box_close' => 'required'
+        ]);
+        $box->update($data);
+        return redirect('/boxes');
     }
 
     /**
@@ -90,6 +98,7 @@ class BoxesController extends Controller
      */
     public function destroy(Box $box)
     {
-        //
+        $box->delete();
+        return redirect('/boxes');
     }
 }
