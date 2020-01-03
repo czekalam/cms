@@ -49,14 +49,18 @@ class SectionsController extends Controller
     public function update(Request $request, Page $page, Section $section)
     {
         $data = request()->validate([
-            'title' => 'required',
-            'description' => 'required'
+            'name' => 'required',
+            'html_class' => 'required',
+            'html_id' => 'required',
+            'box_content' => 'required'
         ]);
+ 
         $section->update($data);
-        return redirect('/pages/'. $page->id);
+        return redirect('/pages');
     }
-    public function destroy(Section $section)
+    public function destroy($id, $id2)
     {
+        $section = Section::where('id', $id2)->firstOrFail();
         $section->delete();
         return redirect('/pages');
     }

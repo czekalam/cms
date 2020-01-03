@@ -10,7 +10,7 @@
             <input name="html_id" type="hidden" value="{{$html_id}}">
             <input name="html_class" type="hidden" value="{{$html_class}}">
             <input name="section_name" type="hidden" value="{{$section_name}}">
-            {!!$box_form!!}
+            <input name="box_content">
             <button type="submit">Create Section</button>
         </form>
         @if($errors->any())

@@ -8,7 +8,6 @@
             <input class="uk-input" required type="text" name="name" placeholder="Box name">
             <input class="uk-input" required type="text" name="box_open" placeholder="Box open">
             <input class="uk-input" required type="text" name="box_close" placeholder="Box close">
-            <input class="uk-input" required type="text" name="box_form" placeholder="Box form">
             <button class="uk-button" type="submit">Create Box</button>
         </form>
         @if($errors->any())

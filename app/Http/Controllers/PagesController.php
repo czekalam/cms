@@ -23,6 +23,7 @@ class PagesController extends Controller
         $page_sections =  $page->sections;
  
         $boxes = array();
+
         foreach ($page_sections as $page_section) {
             $boxes[] = $page_section->box;
         }
@@ -40,10 +41,12 @@ class PagesController extends Controller
     }
     public function update(Page $page) 
     {
-        request()->validate([
-            'name' => 'required'
+        $data = request()->validate([
+            'name' => 'required',
+            'html_class' => 'nullable',
+            'html_id' => 'nullable'
         ]);
-        $page->update(request(['name']));
+        $page->update($data);
         return redirect('/pages');
     } 
     public function store() 

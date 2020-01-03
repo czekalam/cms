@@ -1,7 +1,7 @@
 @extends('layout')
-@section('title','Create')
+@section('title','Create page')
 @section('content')
-    <h1 class="uk-text-center">Create</h1>
+    <h1 class="uk-text-center">Create page</h1>
     <div class="uk-align-center uk-width-1-2">
         <form class="uk-form-custom" method="POST" action="/pages">
             @csrf

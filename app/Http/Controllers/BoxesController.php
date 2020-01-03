@@ -38,7 +38,6 @@ class BoxesController extends Controller
     {
         $data = request()->validate([
             'name' => 'required',
-            'box_form' => 'required',
             'box_open' => 'required',
             'box_close' => 'required'
         ]);
@@ -82,7 +81,6 @@ class BoxesController extends Controller
     {
         $data = request()->validate([
             'name' => 'required',
-            'box_form' => 'required',
             'box_open' => 'required',
             'box_close' => 'required'
         ]);
