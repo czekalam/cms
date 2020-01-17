@@ -1,8 +1,59 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Variables
-@import 'variables';
+.nav a {
+    color:#fff;
+}
+.nav {
+    background: #000;
+    // padding: 15px;
+}
+.nav li {
+    padding: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.nav li:hover {
+    background: #333;
+}
+.nav a:hover {
+    text-decoration: none;
+}
+.files-page {
+    width: 1200px;
+    margin: 0 auto;
+    // background: #eee;
+}
+.files-page h2 {
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom:5px;
+}
+.files-page__css textarea,.files-page__js textarea {
+    height: 50vh;
+    width: 100%;
+}
+.files-page__css,.files-page__js {
+    width: 39%;
+    padding: 5%;
+    display: inline-block;
+}
+.files-page__img {
+    width: 100%;
+}
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// login
+.login form {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #333;
+    display: inline-flex;
+    padding: 50px;
+}
+
+
+.create-page h1, .create-box h1  {
+    font-size: 80px;
+    margin: 100px;
+}

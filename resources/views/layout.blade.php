@@ -4,11 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="{{ url('/uikit/css/uikit.min.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ url('/css/reset.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ url('/css/app.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ url('/css/page.css') }}" />
         <title>@yield('title','CMS')</title>
     </head>
-    <body class="uk-background-muted">
+    <body>
         <nav class="nav">
             <ul class="nav__list uk-flex uk-flex-row uk-flex-center">
                 <li class="nav__list-item uk-margin-small-right"><a href="/">Home</a></li>
